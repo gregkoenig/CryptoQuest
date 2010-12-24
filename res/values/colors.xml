@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="splashScreen">#ffffff</color>
+    <color name="startScreen">#ffffff</color>
+    <color name="selectionScreen">#000000</color>
+    <color name="cryptogramScreen">#ffffff</color>
+	<color name="defaulttextcolor">#000000</color>
+</resources>
