@@ -35,6 +35,8 @@ public class CryptogramSelectionScreen extends Activity
 	
 	public void onItemClick(AdapterView<?> parent, View v, int position, long id){
 		
+		// Test git
+		
 		//CryptogramSelectionItem cryptogramSelectionItem;
 		Intent intent = new Intent(this, CryptogramScreen.class);
 		startActivity(intent);
