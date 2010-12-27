@@ -25,24 +25,12 @@ public class StartScreen extends Activity {
         setContentView(R.layout.start_screen);
         
         createCryptogramPool();
-        
-        didStartNewQuest();
 
-    }
-    
-    private void createCryptogramPool() {
-		SharedPreferences cryptogramPool = getSharedPreferences(CRYPTOGRAM_POOL, 0);
-		SharedPreferences.Editor editor = cryptogramPool.edit();
-
-		editor.putString("0", getString(R.string.quote1));
-		
-		editor.commit();
-	}
-    
-    public void didStartNewQuest(){
+    } 
+    public boolean didStartNewQuest(){
     	
     	// if first time, show only one button. else show both
-    	
+    	return true;
     }
     
     public void startNewQuest(View v){
@@ -58,5 +46,17 @@ public class StartScreen extends Activity {
     	startActivity(intent);
     	
     }
+    
+    private void createCryptogramPool() {
+		SharedPreferences cryptogramPool = getSharedPreferences(CRYPTOGRAM_POOL, 0);
+		SharedPreferences.Editor editor = cryptogramPool.edit();
+
+		editor.putString("0", getString(R.string.quote1));
+		editor.putString("1", getString(R.string.quote2));
+		editor.putString("2", getString(R.string.quote3));
+		
+		
+		editor.commit();
+	}
 
 }

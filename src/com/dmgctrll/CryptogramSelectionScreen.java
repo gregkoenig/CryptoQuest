@@ -18,7 +18,7 @@ public class CryptogramSelectionScreen extends Activity
 	
 	public static final String CRYPTOGRAM_POOL = "CryptogramPool";
 	
-	String[] items = {"test1", "test2", "test3", "test4", "test5",
+	String[] items = {"quote1", "quote2", "test3", "test4", "test5",
 					  "test6", "test7", "test8", "test9", "test10"
 	};
 	
@@ -37,12 +37,9 @@ public class CryptogramSelectionScreen extends Activity
 	
 	public void onItemClick(AdapterView<?> parent, View v, int position, long id){
 		
-		// Test git
-		//CryptogramSelectionItem cryptogramSelectionItem;
 		Intent intent = new Intent();
 		intent = CryptogramScreen.intentWithContext(this, Integer.toString(position));
 		startActivity(intent);
-		//intent = CryptogramScreen.intentWithContext(this, cryptogramSelectionItem.getName(), cryptogramSelectionItem.getResource());
 		
 		
 	}

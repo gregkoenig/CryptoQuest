@@ -55,11 +55,11 @@ public class CryptogramScreen extends Activity {
         */
 	}
 	
-	public static Intent intentWithContext(Context context, String cryptogram) 
+	public static Intent intentWithContext(Context context, String gridPosition) 
 	{
 		Intent intent = new Intent(context, CryptogramScreen.class);
 		Bundle extras = new Bundle();
-		extras.putString(GRID_ITEM_KEY, cryptogram);
+		extras.putString(GRID_ITEM_KEY, gridPosition);
 		intent.replaceExtras(extras);
 		return intent;
 	}
