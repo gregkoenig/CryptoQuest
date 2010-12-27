@@ -3,6 +3,7 @@ package com.dmgctrll;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -13,20 +14,31 @@ import android.widget.TextView;
 public class CryptogramScreen extends Activity {
 		//implements OnLetterChangedListener {
 	
+	public static final String CRYPTOGRAM_POOL = "CryptogramPool";
+	
 	private static final String BRIGHTNESS_PREFERENCE_KEY = "brightness";
     private static final String COLOR_PREFERENCE_KEY = "color";
     
     private final static String GRID_ITEM_KEY	= "gridItemKey";
 	private final static String GRID_ITEM_CRYPTOGRAM	= "gridItemCryptogram";
     
-    //TextView tv; 
+    TextView tv; 
 	
-	//Test gitignore
-	// tests ddd fff
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cryptogram);
+        setContentView(R.layout.cryptogram_screen);
+        
+        Bundle extras = getIntent().getExtras();
+        String selection = extras.getString(GRID_ITEM_KEY);
+        SharedPreferences cryptogramPool = getSharedPreferences(CRYPTOGRAM_POOL, 0);
+        cryptogramPool.getString(selection, null);
+        
+        tv = (TextView) findViewById(R.id.cryptogram);
+        
+        String text = cryptogramPool.getString(selection, null);
+        
+        tv.setText(text);
         
         /*
         Button btn = (Button) findViewById(R.id.Button01);
@@ -43,12 +55,11 @@ public class CryptogramScreen extends Activity {
         */
 	}
 	
-	public static Intent intentWithContext(Context context, String key, String cryptogram) 
+	public static Intent intentWithContext(Context context, String cryptogram) 
 	{
 		Intent intent = new Intent(context, CryptogramScreen.class);
 		Bundle extras = new Bundle();
-		extras.putString(GRID_ITEM_KEY, key);
-		extras.putString(GRID_ITEM_CRYPTOGRAM, cryptogram);
+		extras.putString(GRID_ITEM_KEY, cryptogram);
 		intent.replaceExtras(extras);
 		return intent;
 	}

@@ -36,7 +36,7 @@ public class SplashScreen extends Activity {
 	    	public void handleMessage(Message msg) {
 	    		switch (msg.what) {
 		    		case STOP_SPLASH: {
-	    	    			setContentView(R.layout.main);
+	    	    			setContentView(R.layout.start_screen);
 		    		}
 			    	break;
 		    	}

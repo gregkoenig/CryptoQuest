@@ -2,6 +2,7 @@ package com.dmgctrll;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -14,16 +15,29 @@ public class StartScreen extends Activity {
 	Button startNewQuest;
 	Button resumeQuest;
 	
+	public static final String CRYPTOGRAM_POOL = "CryptogramPool";
+	
 	private static final String COLOR_PREFERENCE_KEY = "color";
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.start_screen);
+        
+        createCryptogramPool();
         
         didStartNewQuest();
 
     }
+    
+    private void createCryptogramPool() {
+		SharedPreferences cryptogramPool = getSharedPreferences(CRYPTOGRAM_POOL, 0);
+		SharedPreferences.Editor editor = cryptogramPool.edit();
+
+		editor.putString("0", getString(R.string.quote1));
+		
+		editor.commit();
+	}
     
     public void didStartNewQuest(){
     	
