@@ -21,6 +21,8 @@ public class CryptogramScreen extends Activity {
     
     //TextView tv; 
 	
+	//Test gitignore
+	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cryptogram);
