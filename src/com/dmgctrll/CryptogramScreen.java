@@ -22,7 +22,7 @@ public class CryptogramScreen extends Activity {
     //TextView tv; 
 	
 	//Test gitignore
-	// tests ddd
+	// tests ddd fff
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
