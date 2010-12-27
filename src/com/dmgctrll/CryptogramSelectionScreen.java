@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class CryptogramSelectionScreen extends Activity 
@@ -63,14 +64,14 @@ public class CryptogramSelectionScreen extends Activity
 		
 		public View getView(int position, View convertView, ViewGroup parent) {
 			
-			TextView label = (TextView) convertView;
+			ImageView image = (ImageView) convertView;
 			
 			if(convertView==null){
-				convertView = new TextView(ctxt);
-				label = (TextView) convertView;
+				convertView = new ImageView(ctxt);
+				image = (ImageView) convertView;
 			}
 			
-			label.setText(items[position]);
+			image.setImageResource(R.drawable.icon);
 			
 			return(convertView);
 		}
