@@ -12,6 +12,7 @@ public class CryptogramGenerator {
 	
 	private HashMap<Character, Character> cryptogramHashMap = new HashMap<Character, Character>();
 	private StringBuilder arrayToStringBuilder = new StringBuilder();
+	ArrayList<Character> letterPool;
 		
 	public String getCryptogramFromQuote(String quote){
 		
@@ -22,6 +23,7 @@ public class CryptogramGenerator {
 		
 		// Make new one each time
 		cryptogramHashMap.clear();
+		letterPool = getAlphabetPool();
 		
 		char[] cryptogram = new char[quote.length()];
 		
@@ -71,8 +73,6 @@ public class CryptogramGenerator {
 	
 	private Character getNewRandomLetterFromAlphabetPool(Character c){
 		
-		ArrayList<Character> letterPool = getAlphabetPool();
-		
 		Character scrambledLetter;
 		boolean test = true;
 		
@@ -80,7 +80,7 @@ public class CryptogramGenerator {
 		while(test){
 			
 			Random random = new Random();
-			int x = random.nextInt(letterPool.size()) + 1;
+			int x = random.nextInt(letterPool.size()-1);
 			Character randomCharacter = letterPool.get(x);
 			
 			// make sure random letter is not equal to 'c'
