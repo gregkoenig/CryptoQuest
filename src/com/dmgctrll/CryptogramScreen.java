@@ -38,7 +38,11 @@ public class CryptogramScreen extends Activity {
         
         String text = cryptogramPool.getString(selection, null);
         
-        tv.setText(text);
+        CryptogramGenerator cryptogramGenerator = new CryptogramGenerator();
+        
+        String cryptogram = cryptogramGenerator.getCryptogramFromQuote(text);
+        
+        tv.setText(cryptogram);
         
         /*
         Button btn = (Button) findViewById(R.id.Button01);
