@@ -31,7 +31,7 @@
             
         <activity 
             android:name="CryptogramScreen"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="portrait" />
         
 
     </application>

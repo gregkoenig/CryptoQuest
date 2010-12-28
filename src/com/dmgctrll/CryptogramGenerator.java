@@ -10,7 +10,8 @@ import java.util.Random;
 
 public class CryptogramGenerator {
 	
-	HashMap<Character, Character> cryptogramHashMap = new HashMap<Character, Character>();
+	private HashMap<Character, Character> cryptogramHashMap = new HashMap<Character, Character>();
+	private StringBuilder arrayToStringBuilder = new StringBuilder();
 		
 	public String getCryptogramFromQuote(String quote){
 		
@@ -22,13 +23,11 @@ public class CryptogramGenerator {
 		// Make new one each time
 		cryptogramHashMap.clear();
 		
-		String cryptoquote = quote;
+		char[] cryptogram = new char[quote.length()];
 		
-		Character[] cryptogram = new Character[cryptoquote.length()];
-		
-		for(int i = 0; i < cryptoquote.length(); i++){
+		for(int i = 0; i < quote.length(); i++){
 			
-			Character c = cryptoquote.charAt(i);
+			Character c = quote.charAt(i);
 			
 			// ignore spaces
 			if(c == ' '){
@@ -53,8 +52,8 @@ public class CryptogramGenerator {
 			}else if(!cryptogramHashMap.containsKey(c)) {
 				
 				// create new key/value pair and pop letter from alphabet pool
-				Character scrambledLetter = getNewRandomLetterFromAlphabetPool(c);
-				cryptogram[i] = scrambledLetter;			
+				char newLetter = getNewRandomLetterFromAlphabetPool(c);
+				cryptogram[i] = newLetter;			
 					
 			}else{
 				
@@ -65,7 +64,8 @@ public class CryptogramGenerator {
 		}
 		
 		// convert array to string
-		String quoteAfterBeingScrambled = Arrays.toString(cryptogram);
+		arrayToStringBuilder.append(cryptogram);
+		String quoteAfterBeingScrambled = arrayToStringBuilder.toString();
 		return quoteAfterBeingScrambled;
 	}
 	
